@@ -1499,7 +1499,15 @@ export default function TrampolineTricks() {
             </div>
 
             {/* Buttons directly below trampoline */}
-            <div style={{ marginTop: 8, display: "flex", justifyContent: "center", gap: 0 }}>
+            <div style={{ marginTop: 6, display: "flex", justifyContent: "center", gap: 0, position: "relative" }}>
+              {tutorial === 0 && (
+                <div style={{
+                  position: "absolute", top: -18, left: "50%", transform: "translateX(-50%)",
+                  background: "rgba(0,0,0,0.8)", borderRadius: 6, padding: "2px 10px", color: "#fff",
+                  fontSize: 10, textAlign: "center", fontFamily: "'Baloo 2', cursive",
+                  fontWeight: 600, border: "1px solid rgba(251,191,36,0.3)", whiteSpace: "nowrap", zIndex: 20,
+                }}>👆 Tap <b style={{ color: "#fbbf24" }}>glowing button</b></div>
+              )}
               {MOVES.map((move, mi) => {
                 const inT = trick && trick.moves.includes(move.id);
                 const isNext = trick && progress.length < trick.moves.length && trick.moves[progress.length] === move.id;
@@ -1527,14 +1535,6 @@ export default function TrampolineTricks() {
                 );
               })}
             </div>
-
-            {tutorial === 0 && (
-              <div style={{
-                marginTop: 4, background: "rgba(0,0,0,0.75)", borderRadius: 8, padding: "3px 10px", color: "#fff",
-                fontSize: "clamp(10px, 2.5vw, 12px)", textAlign: "center", fontFamily: "'Baloo 2', cursive",
-                fontWeight: 600, border: "1px solid rgba(251,191,36,0.3)",
-              }}>👆 Tap the <b style={{ color: "#fbbf24" }}>glowing button</b></div>
-            )}
           </div>
         </div>
       )}
