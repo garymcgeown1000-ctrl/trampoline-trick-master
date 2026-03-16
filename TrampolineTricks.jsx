@@ -1118,7 +1118,7 @@ export default function TrampolineTricks() {
 
   return (
     <div style={{
-      width: "100%", height: "100vh", overflow: "hidden", position: "relative",
+      width: "100%", height: "100dvh", overflow: "hidden", position: "relative",
       fontFamily: "'Lilita One', 'Baloo 2', cursive", userSelect: "none", WebkitUserSelect: "none",
       background: screen === "playing"
         ? "#111"
@@ -1483,7 +1483,7 @@ export default function TrampolineTricks() {
             </div>
           )}
 
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", minHeight: 0, zIndex: 2 }}>
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", minHeight: 0, zIndex: 2, maxHeight: "35vh" }}>
             {feedback && (
               <div style={{
                 position: "absolute", top: "6%", left: "50%", transform: "translateX(-50%)",
@@ -1497,19 +1497,18 @@ export default function TrampolineTricks() {
             )}
             {tutorial === 0 && (
               <div style={{
-                position: "absolute", bottom: "5%", left: "50%", transform: "translateX(-50%)",
-                background: "rgba(0,0,0,0.75)", borderRadius: 14, padding: "10px 18px", color: "#fff",
-                fontSize: "clamp(12px, 3vw, 15px)", textAlign: "center", fontFamily: "'Baloo 2', cursive",
-                fontWeight: 600, zIndex: 20, maxWidth: "90%", border: "1px solid rgba(251,191,36,0.3)", animation: "popIn 0.4s ease-out",
+                background: "rgba(0,0,0,0.75)", borderRadius: 10, padding: "6px 14px", color: "#fff",
+                fontSize: "clamp(11px, 2.8vw, 14px)", textAlign: "center", fontFamily: "'Baloo 2', cursive",
+                fontWeight: 600, maxWidth: "90%", border: "1px solid rgba(251,191,36,0.3)",
               }}>👇 Tap the <b style={{ color: "#fbbf24" }}>glowing button</b> below!</div>
             )}
 
             <div style={{ transform: `translateY(${charY}px)`, transition: "transform 0.2s ease-out" }}>
-              <ChildChar cfg={charCfg} pose={charPose} bounce={charPose === "idle" && !locked} scale={0.7} />
+              <ChildChar cfg={charCfg} pose={charPose} bounce={charPose === "idle" && !locked} scale={0.6} />
             </div>
 
             <div style={{ marginTop: 2, position: "relative" }}>
-              <TrampolineDisplay type={arenaCfg.trampType} color={arenaCfg.trampColor} stretch={tramStretch} width={Math.min(window.innerWidth * 0.35, 150)} />
+              <TrampolineDisplay type={arenaCfg.trampType} color={arenaCfg.trampColor} stretch={tramStretch} width={Math.min(window.innerWidth * 0.3, 130)} />
             </div>
           </div>
 
