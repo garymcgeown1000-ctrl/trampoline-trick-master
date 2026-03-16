@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="80" fill="#052e16"/>
+  <text x="256" y="200" text-anchor="middle" font-size="120" fill="white">🤸</text>
+  <text x="256" y="320" text-anchor="middle" font-size="48" font-family="Arial,sans-serif" font-weight="bold" fill="#4ade80">TRICK</text>
+  <text x="256" y="380" text-anchor="middle" font-size="48" font-family="Arial,sans-serif" font-weight="bold" fill="#fbbf24">MASTER</text>
+  <text x="256" y="440" text-anchor="middle" font-size="24" font-family="Arial,sans-serif" fill="rgba(255,255,255,0.5)">TrampolinesIreland.com</text>
+</svg>
