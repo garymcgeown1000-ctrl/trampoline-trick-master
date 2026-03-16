@@ -1123,8 +1123,8 @@ export default function TrampolineTricks() {
       background: screen === "playing"
         ? "#111"
         : screen === "customize"
-        ? "linear-gradient(170deg, #052e16 0%, #14532d 50%, #0f3460 100%)"
-        : "linear-gradient(170deg, #052e16 0%, #14532d 40%, #16a34a 100%)",
+        ? "linear-gradient(170deg, #0a0a1a 0%, #111827 50%, #1e3a2e 100%)"
+        : "linear-gradient(170deg, #0a0a1a 0%, #111827 40%, #1e3a2e 100%)",
       display: "flex", flexDirection: "column", transition: "background 0.8s ease",
     }}>
       <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -1183,12 +1183,23 @@ export default function TrampolineTricks() {
             background: "rgba(255,255,255,0.1)", borderRadius: 14, padding: "10px 14px",
             maxWidth: 340, width: "100%", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.15)",
           }}>
-            <div style={{ color: "#4ade80", fontWeight: 800, fontSize: "clamp(13px, 3.2vw, 16px)", marginBottom: 4, textAlign: "center" }}>🎯 How to Play</div>
-            <div style={{ color: "rgba(255,255,255,0.9)", fontSize: "clamp(11px, 2.8vw, 13px)", lineHeight: 1.6, fontFamily: "'Baloo 2', cursive" }}>
-              <div>1️⃣ A trick and <b>button sequence</b> appears</div>
-              <div>2️⃣ Tap the <b>glowing buttons</b> in order</div>
-              <div>3️⃣ Watch your character <b>do the trick!</b></div>
-              <div>4️⃣ Complete all tricks <b>before time runs out</b></div>
+            <div style={{ color: "#4ade80", fontWeight: 800, fontSize: "clamp(14px, 3.5vw, 17px)", marginBottom: 6, textAlign: "center" }}>🎯 How to Play</div>
+            <div style={{ color: "#fff", fontSize: "clamp(12px, 3vw, 14px)", lineHeight: 1.8, fontFamily: "'Baloo 2', cursive" }}>
+              <div>1️⃣ A <b>trick name</b> appears at the top</div>
+              <div>2️⃣ Tap the <b>coloured buttons</b> at the bottom in the right order</div>
+              <div>3️⃣ Your character <b>performs the trick!</b></div>
+              <div>4️⃣ Finish all tricks <b>before the timer runs out</b></div>
+            </div>
+          </div>
+
+          {/* Start prompt */}
+          <div style={{
+            background: "linear-gradient(135deg, #16a34a, #22c55e)", borderRadius: 14,
+            padding: "10px 20px", maxWidth: 340, width: "100%", textAlign: "center",
+            boxShadow: "0 4px 16px rgba(22,163,74,0.4)", animation: "pulse 1.5s ease-in-out infinite",
+          }}>
+            <div style={{ color: "#fff", fontSize: "clamp(15px, 4vw, 20px)", fontWeight: 800 }}>
+              👇 Tap Level 1 below to start!
             </div>
           </div>
 
@@ -1246,7 +1257,7 @@ export default function TrampolineTricks() {
               color: "rgba(255,255,255,0.25)", fontSize: 9, marginTop: 4,
               fontFamily: "'Baloo 2', cursive", letterSpacing: 0.5,
             }}>
-              Featuring BERG trampolines — Ireland's #1 trampoline dealer since 2011
+              Trampolines Ireland selling BERG trampolines since 2020
             </div>
           </div>
         </div>
@@ -1449,8 +1460,8 @@ export default function TrampolineTricks() {
           {trick && (
             <div style={{ padding: "4px 14px", textAlign: "center", flexShrink: 0, position: "relative", zIndex: 2 }}>
               <div style={{ background: "rgba(0,0,0,0.25)", borderRadius: 14, padding: "8px 12px", backdropFilter: "blur(6px)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <div style={{ color: "#fbbf24", fontSize: "clamp(12px, 3vw, 15px)", fontFamily: "'Baloo 2', cursive", fontWeight: 700, marginBottom: 4 }}>
-                  Perform: <span style={{ color: "#fff", fontSize: "clamp(14px, 3.5vw, 18px)" }}>{trick.emoji} {trick.name}</span>
+                <div style={{ color: "#fbbf24", fontSize: "clamp(14px, 3.5vw, 17px)", fontFamily: "'Baloo 2', cursive", fontWeight: 700, marginBottom: 4 }}>
+                  Perform: <span style={{ color: "#fff", fontSize: "clamp(16px, 4vw, 20px)" }}>{trick.emoji} {trick.name}</span>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center", gap: "clamp(4px, 1.5vw, 10px)", alignItems: "center" }}>
                   {trick.moves.map((mid, i) => {
@@ -1500,7 +1511,7 @@ export default function TrampolineTricks() {
             )}
 
             <div style={{ transform: `translateY(${charY}px)`, transition: "transform 0.2s ease-out" }}>
-              <ChildChar cfg={charCfg} pose={charPose} bounce={charPose === "idle" && !locked} scale={1.1} />
+              <ChildChar cfg={charCfg} pose={charPose} bounce={charPose === "idle" && !locked} scale={0.9} />
             </div>
 
             <div style={{ marginTop: 4, position: "relative" }}>
@@ -1508,7 +1519,7 @@ export default function TrampolineTricks() {
             </div>
           </div>
 
-          <div style={{ padding: "clamp(6px, 1.2vh, 10px) 8px clamp(12px, 2.5vh, 22px)", flexShrink: 0, position: "relative", zIndex: 2, background: "linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.25) 70%, transparent 100%)" }}>
+          <div style={{ padding: "clamp(4px, 1vh, 8px) 6px clamp(8px, 1.5vh, 14px)", flexShrink: 0, position: "relative", zIndex: 2, background: "linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 70%, transparent 100%)" }}>
             <div style={{ display: "flex", justifyContent: "center", gap: 0 }}>
               {MOVES.map((move, mi) => {
                 const inT = trick && trick.moves.includes(move.id);
@@ -1518,21 +1529,21 @@ export default function TrampolineTricks() {
                 return (
                   <button key={move.id} onClick={() => inT && handleMove(move.id)} disabled={!inT || locked}
                     style={{
-                      width: "clamp(48px, 14vw, 64px)", height: "clamp(52px, 13vw, 66px)",
+                      width: "clamp(52px, 15.5vw, 68px)", height: "clamp(60px, 16vw, 78px)",
                       borderRadius: isFirst ? "14px 4px 4px 14px" : isLast ? "4px 14px 14px 4px" : 4,
                       background: `linear-gradient(160deg, ${move.color}${isNext ? "ee" : inT ? "cc" : "55"}, ${move.color}${isNext ? "bb" : inT ? "88" : "33"})`,
                       border: isNext ? "3px solid #fff" : "none",
                       borderRight: !isLast && !isNext ? "1px solid rgba(255,255,255,0.1)" : undefined,
                       color: "#fff", cursor: inT && !locked ? "pointer" : "default",
-                      display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 2,
+                      display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 3,
                       boxShadow: isNext ? `0 0 20px ${move.color}70` : "0 3px 8px rgba(0,0,0,0.2)",
                       opacity: 1,
                       animation: isNext ? "btnG 0.8s ease-in-out infinite" : "none", transition: "background 0.15s, box-shadow 0.15s",
                       position: "relative", overflow: "hidden",
                     }}>
                     {isNext && <div style={{ position: "absolute", top: 0, left: "-100%", width: "200%", height: "100%", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)", animation: "shine 1.5s ease-in-out infinite" }} />}
-                    <span style={{ fontSize: "clamp(18px, 4.5vw, 26px)", position: "relative" }}>{move.emoji}</span>
-                    <span style={{ fontSize: "clamp(8px, 2vw, 11px)", fontWeight: 800, fontFamily: "'Baloo 2', cursive", position: "relative" }}>{move.label}</span>
+                    <span style={{ fontSize: "clamp(22px, 5.5vw, 30px)", position: "relative" }}>{move.emoji}</span>
+                    <span style={{ fontSize: "clamp(10px, 2.5vw, 13px)", fontWeight: 800, fontFamily: "'Baloo 2', cursive", position: "relative", textShadow: "1px 1px 0 rgba(0,0,0,0.3)" }}>{move.label}</span>
                   </button>
                 );
               })}
