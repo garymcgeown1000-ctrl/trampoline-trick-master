@@ -1430,89 +1430,85 @@ export default function TrampolineTricks() {
       {screen === "playing" && (
         <div style={{ flex: 1, display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
           <ArenaBackground arena={arenaCfg} />
-          <div style={{ padding: "4px 14px 2px", flexShrink: 0, position: "relative", zIndex: 2, background: "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 80%, transparent 100%)" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 2 }}>
-              <div style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(10px, 2.5vw, 13px)", fontFamily: "'Baloo 2', cursive", fontWeight: 700 }}>Lv.{lv.level} {lv.title}</div>
-              <div style={{ color: "#fbbf24", fontSize: "clamp(14px, 3.5vw, 18px)", fontWeight: 800 }}>{score} pts</div>
+          {/* HUD - zero fat */}
+          <div style={{ padding: "2px 10px 0", flexShrink: 0, position: "relative", zIndex: 2 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(10px, 2.5vw, 12px)", fontFamily: "'Baloo 2', cursive", fontWeight: 700 }}>Lv.{lv.level} {lv.title}</div>
+              <div style={{ color: "#fbbf24", fontSize: "clamp(13px, 3.2vw, 16px)", fontWeight: 800 }}>{score} pts</div>
             </div>
-            <div style={{ background: "rgba(0,0,0,0.3)", borderRadius: 10, height: "clamp(8px, 2vw, 12px)", overflow: "hidden", position: "relative" }}>
+            <div style={{ background: "rgba(0,0,0,0.3)", borderRadius: 8, height: 8, overflow: "hidden", position: "relative", marginTop: 1 }}>
               <div style={{
-                height: "100%", borderRadius: 10, width: `${tp}%`,
+                height: "100%", borderRadius: 8, width: `${tp}%`,
                 background: danger ? "linear-gradient(90deg, #ef4444, #f97316)" : "linear-gradient(90deg, #22c55e, #86efac)",
                 transition: "width 1s linear", animation: danger ? "pulse 0.5s infinite" : "none",
               }} />
-              <div style={{ position: "absolute", right: 6, top: "50%", transform: "translateY(-50%)", color: "#fff", fontSize: "clamp(7px, 1.8vw, 10px)", fontWeight: 800, fontFamily: "'Baloo 2', cursive", textShadow: "1px 1px 0 rgba(0,0,0,0.5)" }}>{timeLeft}s</div>
-            </div>
-            <div style={{ display: "flex", justifyContent: "center", gap: "clamp(2px, 0.6vw, 4px)", marginTop: 3 }}>
-              {Array.from({ length: tricksTotal }).map((_, i) => {
-                const done = i < (tricksTotal - tricksLeft); const cur = i === (tricksTotal - tricksLeft);
-                return (<div key={i} style={{ width: "clamp(8px, 2vw, 12px)", height: "clamp(8px, 2vw, 12px)", borderRadius: "50%", background: done ? "#22c55e" : cur ? "rgba(255,255,255,0.3)" : "rgba(255,255,255,0.1)", border: cur ? "2px solid #fbbf24" : "2px solid transparent", boxShadow: done ? "0 0 4px rgba(34,197,94,0.5)" : "none", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "clamp(5px, 1.2vw, 7px)", color: "#fff", fontWeight: 800 }}>{done && "✓"}</div>);
-              })}
+              <div style={{ position: "absolute", right: 4, top: "50%", transform: "translateY(-50%)", color: "#fff", fontSize: 8, fontWeight: 800, fontFamily: "'Baloo 2', cursive", textShadow: "1px 1px 0 rgba(0,0,0,0.5)" }}>{timeLeft}s</div>
             </div>
           </div>
 
+          {/* Trick name + sequence */}
           {trick && (
-            <div style={{ padding: "2px 10px", textAlign: "center", flexShrink: 0, position: "relative", zIndex: 2 }}>
-              <div style={{ background: "rgba(0,0,0,0.25)", borderRadius: 12, padding: "5px 10px", backdropFilter: "blur(6px)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <div style={{ color: "#fbbf24", fontSize: "clamp(12px, 3vw, 14px)", fontFamily: "'Baloo 2', cursive", fontWeight: 700, marginBottom: 3 }}>
-                  Perform: <span style={{ color: "#fff", fontSize: "clamp(14px, 3.5vw, 17px)" }}>{trick.emoji} {trick.name}</span>
-                </div>
-                <div style={{ display: "flex", justifyContent: "center", gap: "clamp(3px, 1vw, 8px)", alignItems: "center" }}>
-                  {trick.moves.map((mid, i) => {
-                    const m = getMove(mid); const done = i < progress.length; const act = i === progress.length;
-                    return (
-                      <div key={i} style={{ display: "flex", alignItems: "center", gap: "clamp(2px, 0.5vw, 4px)" }}>
-                        <div style={{
-                          width: "clamp(30px, 7.5vw, 40px)", height: "clamp(30px, 7.5vw, 40px)", borderRadius: 10,
-                          display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                          background: done ? m.color : act ? `${m.color}30` : "rgba(255,255,255,0.05)",
-                          border: act ? `2px solid ${m.color}` : done ? `2px solid ${m.color}` : "2px solid rgba(255,255,255,0.1)",
-                          boxShadow: done ? `0 0 8px ${m.color}60` : "none", position: "relative",
-                          animation: act ? "seqP 1.2s ease-in-out infinite" : "none",
-                        }}>
-                          <span style={{ fontSize: "clamp(12px, 3vw, 15px)" }}>{m.emoji}</span>
-                          <span style={{ fontSize: "clamp(6px, 1.4vw, 8px)", color: "#fff", fontWeight: 700, fontFamily: "'Baloo 2', cursive" }}>{m.label}</span>
-                          {done && <div style={{ position: "absolute", top: -3, right: -3, width: 12, height: 12, borderRadius: "50%", background: "#22c55e", color: "#fff", fontSize: 7, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800 }}>✓</div>}
-                        </div>
-                        {i < trick.moves.length - 1 && <span style={{ color: done ? "rgba(255,255,255,0.6)" : "rgba(255,255,255,0.2)", fontSize: "clamp(10px, 2.5vw, 14px)", fontWeight: 800 }}>›</span>}
+            <div style={{ padding: "2px 8px 0", textAlign: "center", flexShrink: 0, position: "relative", zIndex: 2 }}>
+              <div style={{ color: "#fbbf24", fontSize: "clamp(11px, 2.8vw, 13px)", fontFamily: "'Baloo 2', cursive", fontWeight: 700 }}>
+                Perform: <span style={{ color: "#fff", fontSize: "clamp(13px, 3.2vw, 15px)" }}>{trick.emoji} {trick.name}</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "center", gap: 3, alignItems: "center", marginTop: 1 }}>
+                {trick.moves.map((mid, i) => {
+                  const m = getMove(mid); const done = i < progress.length; const act = i === progress.length;
+                  return (
+                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 2 }}>
+                      <div style={{
+                        width: 28, height: 28, borderRadius: 8,
+                        display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                        background: done ? m.color : act ? `${m.color}30` : "rgba(255,255,255,0.05)",
+                        border: act ? `2px solid ${m.color}` : done ? `2px solid ${m.color}` : "2px solid rgba(255,255,255,0.1)",
+                        boxShadow: done ? `0 0 6px ${m.color}60` : "none", position: "relative",
+                        animation: act ? "seqP 1.2s ease-in-out infinite" : "none",
+                      }}>
+                        <span style={{ fontSize: 12 }}>{m.emoji}</span>
+                        <span style={{ fontSize: 6, color: "#fff", fontWeight: 700, fontFamily: "'Baloo 2', cursive" }}>{m.label}</span>
+                        {done && <div style={{ position: "absolute", top: -2, right: -2, width: 10, height: 10, borderRadius: "50%", background: "#22c55e", color: "#fff", fontSize: 6, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800 }}>✓</div>}
                       </div>
-                    );
-                  })}
-                </div>
+                      {i < trick.moves.length - 1 && <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 10, fontWeight: 800 }}>›</span>}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
 
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", minHeight: 0, zIndex: 2, maxHeight: "35vh" }}>
+          {/* Character + trampoline */}
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", minHeight: 0, zIndex: 2 }}>
             {feedback && (
               <div style={{
-                position: "absolute", top: "6%", left: "50%", transform: "translateX(-50%)",
+                position: "absolute", top: "5%", left: "50%", transform: "translateX(-50%)",
                 animation: "popIn 0.25s ease-out", zIndex: 15,
                 background: feedback.ok ? "linear-gradient(135deg, #22c55e, #16a34a)" : "linear-gradient(135deg, #ef4444, #b91c1c)",
-                borderRadius: 14, padding: "7px 20px", textAlign: "center", boxShadow: "0 4px 20px rgba(0,0,0,0.35)", whiteSpace: "nowrap",
+                borderRadius: 12, padding: "5px 16px", textAlign: "center", boxShadow: "0 4px 20px rgba(0,0,0,0.35)", whiteSpace: "nowrap",
               }}>
-                <div style={{ color: "#fff", fontSize: "clamp(16px, 4.5vw, 22px)", fontWeight: 800 }}>{feedback.text}</div>
-                <div style={{ color: "rgba(255,255,255,0.8)", fontSize: "clamp(11px, 2.8vw, 14px)", fontFamily: "'Baloo 2', cursive" }}>{feedback.sub}</div>
+                <div style={{ color: "#fff", fontSize: "clamp(14px, 4vw, 20px)", fontWeight: 800 }}>{feedback.text}</div>
+                <div style={{ color: "rgba(255,255,255,0.8)", fontSize: "clamp(10px, 2.5vw, 13px)", fontFamily: "'Baloo 2', cursive" }}>{feedback.sub}</div>
               </div>
             )}
             {tutorial === 0 && (
               <div style={{
-                background: "rgba(0,0,0,0.75)", borderRadius: 10, padding: "6px 14px", color: "#fff",
-                fontSize: "clamp(11px, 2.8vw, 14px)", textAlign: "center", fontFamily: "'Baloo 2', cursive",
-                fontWeight: 600, maxWidth: "90%", border: "1px solid rgba(251,191,36,0.3)",
-              }}>👇 Tap the <b style={{ color: "#fbbf24" }}>glowing button</b> below!</div>
+                position: "absolute", bottom: 4, left: "50%", transform: "translateX(-50%)",
+                background: "rgba(0,0,0,0.75)", borderRadius: 8, padding: "4px 12px", color: "#fff",
+                fontSize: "clamp(10px, 2.5vw, 13px)", textAlign: "center", fontFamily: "'Baloo 2', cursive",
+                fontWeight: 600, zIndex: 20, border: "1px solid rgba(251,191,36,0.3)",
+              }}>👇 Tap the <b style={{ color: "#fbbf24" }}>glowing button</b></div>
             )}
 
             <div style={{ transform: `translateY(${charY}px)`, transition: "transform 0.2s ease-out" }}>
               <ChildChar cfg={charCfg} pose={charPose} bounce={charPose === "idle" && !locked} scale={0.6} />
             </div>
-
-            <div style={{ marginTop: 2, position: "relative" }}>
-              <TrampolineDisplay type={arenaCfg.trampType} color={arenaCfg.trampColor} stretch={tramStretch} width={Math.min(window.innerWidth * 0.3, 130)} />
+            <div style={{ marginTop: 0 }}>
+              <TrampolineDisplay type={arenaCfg.trampType} color={arenaCfg.trampColor} stretch={tramStretch} width={Math.min(window.innerWidth * 0.28, 120)} />
             </div>
           </div>
 
-          <div style={{ padding: "4px 6px 6px", flexShrink: 0, position: "relative", zIndex: 2, background: "linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 70%, transparent 100%)" }}>
+          {/* Buttons at bottom - minimal padding */}
+          <div style={{ flexShrink: 0, position: "relative", zIndex: 2, padding: "2px 4px 4px" }}>
             <div style={{ display: "flex", justifyContent: "center", gap: 0 }}>
               {MOVES.map((move, mi) => {
                 const inT = trick && trick.moves.includes(move.id);
@@ -1522,21 +1518,21 @@ export default function TrampolineTricks() {
                 return (
                   <button key={move.id} onClick={() => inT && handleMove(move.id)} disabled={!inT || locked}
                     style={{
-                      width: "clamp(52px, 15.5vw, 68px)", height: "clamp(54px, 14vw, 68px)",
-                      borderRadius: isFirst ? "14px 4px 4px 14px" : isLast ? "4px 14px 14px 4px" : 4,
+                      width: "clamp(52px, 15.5vw, 68px)", height: "clamp(48px, 12vw, 60px)",
+                      borderRadius: isFirst ? "12px 3px 3px 12px" : isLast ? "3px 12px 12px 3px" : 3,
                       background: `linear-gradient(160deg, ${move.color}${isNext ? "ee" : inT ? "cc" : "55"}, ${move.color}${isNext ? "bb" : inT ? "88" : "33"})`,
                       border: isNext ? "3px solid #fff" : "none",
                       borderRight: !isLast && !isNext ? "1px solid rgba(255,255,255,0.1)" : undefined,
                       color: "#fff", cursor: inT && !locked ? "pointer" : "default",
-                      display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 3,
-                      boxShadow: isNext ? `0 0 20px ${move.color}70` : "0 3px 8px rgba(0,0,0,0.2)",
+                      display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 1,
+                      boxShadow: isNext ? `0 0 16px ${move.color}70` : "0 2px 6px rgba(0,0,0,0.2)",
                       opacity: 1,
                       animation: isNext ? "btnG 0.8s ease-in-out infinite" : "none", transition: "background 0.15s, box-shadow 0.15s",
                       position: "relative", overflow: "hidden",
                     }}>
                     {isNext && <div style={{ position: "absolute", top: 0, left: "-100%", width: "200%", height: "100%", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)", animation: "shine 1.5s ease-in-out infinite" }} />}
-                    <span style={{ fontSize: "clamp(22px, 5.5vw, 30px)", position: "relative" }}>{move.emoji}</span>
-                    <span style={{ fontSize: "clamp(10px, 2.5vw, 13px)", fontWeight: 800, fontFamily: "'Baloo 2', cursive", position: "relative", textShadow: "1px 1px 0 rgba(0,0,0,0.3)" }}>{move.label}</span>
+                    <span style={{ fontSize: "clamp(18px, 4.5vw, 24px)", position: "relative" }}>{move.emoji}</span>
+                    <span style={{ fontSize: "clamp(9px, 2.2vw, 11px)", fontWeight: 800, fontFamily: "'Baloo 2', cursive", position: "relative", textShadow: "1px 1px 0 rgba(0,0,0,0.3)" }}>{move.label}</span>
                   </button>
                 );
               })}
