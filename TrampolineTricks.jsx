@@ -1477,11 +1477,11 @@ export default function TrampolineTricks() {
             </div>
           )}
 
-          {/* Character + trampoline */}
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", minHeight: 0, zIndex: 2 }}>
+          {/* Character + trampoline + buttons - ALL in one centered group */}
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", zIndex: 2, minHeight: 0 }}>
             {feedback && (
               <div style={{
-                position: "absolute", top: "5%", left: "50%", transform: "translateX(-50%)",
+                position: "absolute", top: "3%", left: "50%", transform: "translateX(-50%)",
                 animation: "popIn 0.25s ease-out", zIndex: 15,
                 background: feedback.ok ? "linear-gradient(135deg, #22c55e, #16a34a)" : "linear-gradient(135deg, #ef4444, #b91c1c)",
                 borderRadius: 12, padding: "5px 16px", textAlign: "center", boxShadow: "0 4px 20px rgba(0,0,0,0.35)", whiteSpace: "nowrap",
@@ -1490,26 +1490,16 @@ export default function TrampolineTricks() {
                 <div style={{ color: "rgba(255,255,255,0.8)", fontSize: "clamp(10px, 2.5vw, 13px)", fontFamily: "'Baloo 2', cursive" }}>{feedback.sub}</div>
               </div>
             )}
-            {tutorial === 0 && (
-              <div style={{
-                position: "absolute", bottom: 4, left: "50%", transform: "translateX(-50%)",
-                background: "rgba(0,0,0,0.75)", borderRadius: 8, padding: "4px 12px", color: "#fff",
-                fontSize: "clamp(10px, 2.5vw, 13px)", textAlign: "center", fontFamily: "'Baloo 2', cursive",
-                fontWeight: 600, zIndex: 20, border: "1px solid rgba(251,191,36,0.3)",
-              }}>👇 Tap the <b style={{ color: "#fbbf24" }}>glowing button</b></div>
-            )}
 
             <div style={{ transform: `translateY(${charY}px)`, transition: "transform 0.2s ease-out" }}>
               <ChildChar cfg={charCfg} pose={charPose} bounce={charPose === "idle" && !locked} scale={0.6} />
             </div>
-            <div style={{ marginTop: 0 }}>
+            <div>
               <TrampolineDisplay type={arenaCfg.trampType} color={arenaCfg.trampColor} stretch={tramStretch} width={Math.min(window.innerWidth * 0.28, 120)} />
             </div>
-          </div>
 
-          {/* Buttons at bottom - minimal padding */}
-          <div style={{ flexShrink: 0, position: "relative", zIndex: 2, padding: "2px 4px 4px" }}>
-            <div style={{ display: "flex", justifyContent: "center", gap: 0 }}>
+            {/* Buttons directly below trampoline */}
+            <div style={{ marginTop: 8, display: "flex", justifyContent: "center", gap: 0 }}>
               {MOVES.map((move, mi) => {
                 const inT = trick && trick.moves.includes(move.id);
                 const isNext = trick && progress.length < trick.moves.length && trick.moves[progress.length] === move.id;
@@ -1518,7 +1508,7 @@ export default function TrampolineTricks() {
                 return (
                   <button key={move.id} onClick={() => inT && handleMove(move.id)} disabled={!inT || locked}
                     style={{
-                      width: "clamp(52px, 15.5vw, 68px)", height: "clamp(48px, 12vw, 60px)",
+                      width: "clamp(50px, 15vw, 66px)", height: "clamp(46px, 12vw, 58px)",
                       borderRadius: isFirst ? "12px 3px 3px 12px" : isLast ? "3px 12px 12px 3px" : 3,
                       background: `linear-gradient(160deg, ${move.color}${isNext ? "ee" : inT ? "cc" : "55"}, ${move.color}${isNext ? "bb" : inT ? "88" : "33"})`,
                       border: isNext ? "3px solid #fff" : "none",
@@ -1537,6 +1527,14 @@ export default function TrampolineTricks() {
                 );
               })}
             </div>
+
+            {tutorial === 0 && (
+              <div style={{
+                marginTop: 4, background: "rgba(0,0,0,0.75)", borderRadius: 8, padding: "3px 10px", color: "#fff",
+                fontSize: "clamp(10px, 2.5vw, 12px)", textAlign: "center", fontFamily: "'Baloo 2', cursive",
+                fontWeight: 600, border: "1px solid rgba(251,191,36,0.3)",
+              }}>👆 Tap the <b style={{ color: "#fbbf24" }}>glowing button</b></div>
+            )}
           </div>
         </div>
       )}
