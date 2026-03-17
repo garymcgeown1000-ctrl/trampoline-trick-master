@@ -1,23 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
-/* ══════ AUDIO (lazy loaded) ══════ */
-let audioOK = false; const S = {}; let Tone = null;
-async function loadTone() {
-  if (Tone) return;
-  try { Tone = await import("tone"); } catch(e) {}
-}
-function initAudio() {
-  if (audioOK || !Tone) return;
-  try {
-    S.tap = new Tone.Synth({oscillator:{type:"triangle"},envelope:{attack:0.01,decay:0.1,sustain:0,release:0.1}}).toDestination();
-    S.ok = new Tone.PolySynth(Tone.Synth,{oscillator:{type:"sine"},envelope:{attack:0.01,decay:0.2,sustain:0.05,release:0.3}}).toDestination();
-    S.no = new Tone.Synth({oscillator:{type:"sawtooth"},envelope:{attack:0.01,decay:0.3,sustain:0,release:0.2}}).toDestination();
-    S.win = new Tone.PolySynth(Tone.Synth,{oscillator:{type:"triangle"},envelope:{attack:0.01,decay:0.3,sustain:0.1,release:0.5}}).toDestination();
-    audioOK = true;
-  } catch(e){}
-}
-function snd(n,note){if(!audioOK||!Tone)return;try{const t=Tone.now();if(n==="tap")S.tap.triggerAttackRelease(note||"C5","16n",t);else if(n==="ok")S.ok.triggerAttackRelease(["C5","E5","G5"],"8n",t);else if(n==="no")S.no.triggerAttackRelease("C3","8n",t);else if(n==="win"){S.win.triggerAttackRelease(["C5","E5"],"8n",t);S.win.triggerAttackRelease(["G5","C6"],"4n",t+0.2);}}catch(e){}}
-const NT={jump:"C5",tuck:"D5",star:"E5",spin:"F5",flip:"G5",pike:"A5"};
+/* ══════ AUDIO (disabled for now) ══════ */
+function snd() {}
 
 /* ══════ CHARACTER ══════ */
 const SKIN=["#ffcc99","#e8a87c","#c68642","#8d5524","#5c3317"];
@@ -154,11 +138,11 @@ export default function Game(){
   useEffect(()=>{try{const r=localStorage.getItem("tt-s");if(r){const d=JSON.parse(r);if(d.c)setCfg(p=>({...p,...d.c}));if(d.s)setSts(d.s);if(typeof d.co==="number")setCoins(d.co);if(typeof d.ts==="number")setTotS(d.ts);if(Array.isArray(d.u))setUnlocked(d.u);}}catch(e){}setLoaded(true);},[]);
   useEffect(()=>{if(!loaded)return;try{localStorage.setItem("tt-s",JSON.stringify({c:cfg,s:sts,co:coins,ts:totS,u:unlocked}));}catch(e){}},[cfg,sts,coins,totS,unlocked,loaded]);
 
-  const startLv=useCallback((idx)=>{loadTone().then(()=>{try{if(Tone)Tone.start().then(()=>initAudio()).catch(()=>{});}catch(e){}});const l=LV[idx];setLi(idx);setScreen("play");setScore(0);sR.current=0;setLeft(l.n);setTotal(l.n);setTimeLeft(l.time);tR.current=l.time;setProg([]);setPose("idle");setCY(0);setFb(null);setLocked(false);lastR.current=null;const t=pT(l.max,null);setTrick(t);lastR.current=t.name;},[]);
+  const startLv=useCallback((idx)=>{const l=LV[idx];setLi(idx);setScreen("play");setScore(0);sR.current=0;setLeft(l.n);setTotal(l.n);setTimeLeft(l.time);tR.current=l.time;setProg([]);setPose("idle");setCY(0);setFb(null);setLocked(false);lastR.current=null;const t=pT(l.max,null);setTrick(t);lastR.current=t.name;},[]);
 
   useEffect(()=>{if(screen!=="play")return;if(LV[li].nt)return;const did=setTimeout(()=>{tiR.current=setInterval(()=>{setTimeLeft(t=>{const n=t-1;tR.current=n;if(n<=0){clearInterval(tiR.current);setTimeout(()=>{setScreen("result");setPose("idle");},300);return 0;}return n;});},1000);},500);return()=>{clearTimeout(did);clearInterval(tiR.current);};},[screen,li]);
 
-  const anim=useCallback((mid,cb)=>{setLocked(true);setCY(-40);setPose(mid);snd("tap",NT[mid]);setTimeout(()=>setCY(-55),150);setTimeout(()=>setCY(-15),350);setTimeout(()=>{setCY(0);setPose("idle");setLocked(false);if(cb)cb();},500);},[]);
+  const anim=useCallback((mid,cb)=>{setLocked(true);setCY(-40);setPose(mid);snd();setTimeout(()=>setCY(-55),150);setTimeout(()=>setCY(-15),350);setTimeout(()=>{setCY(0);setPose("idle");setLocked(false);if(cb)cb();},500);},[]);
 
   const handleTap=useCallback((mid)=>{
     if(screen!=="play"||!trick||fb||locked)return;
