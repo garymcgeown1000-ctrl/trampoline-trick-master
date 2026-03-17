@@ -794,30 +794,30 @@ const TRICKS = [
 ];
 
 const LEVELS = [
-  // Zone 1: Learning the ropes (1-move tricks)
-  { level: 1, tricks: 3, time: 40, maxMoves: 1, title: "First Bounce", bg: ["#0c4a6e", "#0ea5e9"] },
-  { level: 2, tricks: 4, time: 37, maxMoves: 1, title: "Getting Air", bg: ["#134e4a", "#14b8a6"] },
-  // Zone 2: Combos begin (2-move tricks)
-  { level: 3, tricks: 4, time: 35, maxMoves: 2, title: "Combo Time", bg: ["#312e81", "#818cf8"] },
-  { level: 4, tricks: 5, time: 35, maxMoves: 2, title: "Trick Learner", bg: ["#4a1d6a", "#c084fc"] },
-  { level: 5, tricks: 5, time: 31, maxMoves: 2, title: "Rising Star", bg: ["#7c2d12", "#fb923c"] },
-  { level: 6, tricks: 6, time: 31, maxMoves: 2, title: "Flip Master", bg: ["#1e3a5f", "#38bdf8"] },
-  { level: 7, tricks: 6, time: 29, maxMoves: 2, title: "Quick Feet", bg: ["#365314", "#84cc16"] },
-  // Zone 3: Triple combos (3-move tricks)
-  { level: 8, tricks: 5, time: 31, maxMoves: 3, title: "Air Acrobat", bg: ["#14532d", "#4ade80"] },
-  { level: 9, tricks: 6, time: 30, maxMoves: 3, title: "Triple Threat", bg: ["#581c87", "#d946ef"] },
-  { level: 10, tricks: 7, time: 30, maxMoves: 3, title: "Sky Dancer", bg: ["#7f1d1d", "#f87171"] },
-  { level: 11, tricks: 7, time: 27, maxMoves: 3, title: "Speed Demon", bg: ["#713f12", "#fbbf24"] },
-  { level: 12, tricks: 8, time: 27, maxMoves: 3, title: "Stunt Master", bg: ["#1e3a5f", "#67e8f9"] },
-  { level: 13, tricks: 8, time: 25, maxMoves: 3, title: "No Pressure", bg: ["#4a1942", "#e879f9"] },
-  { level: 14, tricks: 9, time: 27, maxMoves: 3, title: "Crowd Pleaser", bg: ["#052e16", "#34d399"] },
-  // Zone 4: Quad combos (4-move tricks)
-  { level: 15, tricks: 6, time: 33, maxMoves: 4, title: "Quad Squad", bg: ["#172554", "#60a5fa"] },
-  { level: 16, tricks: 7, time: 31, maxMoves: 4, title: "Show-Off", bg: ["#431407", "#fb923c"] },
-  { level: 17, tricks: 8, time: 30, maxMoves: 4, title: "Daredevil", bg: ["#3b0764", "#c084fc"] },
-  { level: 18, tricks: 9, time: 29, maxMoves: 4, title: "Fearless", bg: ["#14532d", "#22d3ee"] },
-  { level: 19, tricks: 10, time: 29, maxMoves: 4, title: "Legendary", bg: ["#7f1d1d", "#fbbf24"] },
-  { level: 20, tricks: 12, time: 31, maxMoves: 4, title: "Grand Champion", bg: ["#fbbf24", "#f97316"] },
+  // Zone 1: No timer - learn at your pace
+  { level: 1, tricks: 3, time: 999, maxMoves: 1, title: "First Bounce", bg: ["#38bdf8", "#7dd3fc"], noTimer: true },
+  { level: 2, tricks: 4, time: 999, maxMoves: 1, title: "Getting Air", bg: ["#4ade80", "#86efac"], noTimer: true },
+  // Zone 2: Combos begin
+  { level: 3, tricks: 4, time: 999, maxMoves: 2, title: "Combo Time", bg: ["#fbbf24", "#fde68a"], noTimer: true },
+  { level: 4, tricks: 5, time: 40, maxMoves: 2, title: "Trick Learner", bg: ["#c084fc", "#e9d5ff"] },
+  { level: 5, tricks: 5, time: 35, maxMoves: 2, title: "Rising Star", bg: ["#fb923c", "#fed7aa"] },
+  { level: 6, tricks: 6, time: 35, maxMoves: 2, title: "Flip Master", bg: ["#38bdf8", "#bae6fd"] },
+  { level: 7, tricks: 6, time: 32, maxMoves: 2, title: "Quick Feet", bg: ["#4ade80", "#bbf7d0"] },
+  // Zone 3: Triple combos
+  { level: 8, tricks: 5, time: 35, maxMoves: 3, title: "Air Acrobat", bg: ["#34d399", "#a7f3d0"] },
+  { level: 9, tricks: 6, time: 33, maxMoves: 3, title: "Triple Threat", bg: ["#d946ef", "#f0abfc"] },
+  { level: 10, tricks: 7, time: 33, maxMoves: 3, title: "Sky Dancer", bg: ["#f87171", "#fecaca"] },
+  { level: 11, tricks: 7, time: 30, maxMoves: 3, title: "Speed Demon", bg: ["#fbbf24", "#fef08a"] },
+  { level: 12, tricks: 8, time: 30, maxMoves: 3, title: "Stunt Master", bg: ["#22d3ee", "#a5f3fc"] },
+  { level: 13, tricks: 8, time: 28, maxMoves: 3, title: "No Pressure", bg: ["#e879f9", "#f5d0fe"] },
+  { level: 14, tricks: 9, time: 30, maxMoves: 3, title: "Crowd Pleaser", bg: ["#34d399", "#6ee7b7"] },
+  // Zone 4: Quad combos
+  { level: 15, tricks: 6, time: 36, maxMoves: 4, title: "Quad Squad", bg: ["#60a5fa", "#bfdbfe"] },
+  { level: 16, tricks: 7, time: 34, maxMoves: 4, title: "Show-Off", bg: ["#fb923c", "#fdba74"] },
+  { level: 17, tricks: 8, time: 33, maxMoves: 4, title: "Daredevil", bg: ["#c084fc", "#d8b4fe"] },
+  { level: 18, tricks: 9, time: 32, maxMoves: 4, title: "Fearless", bg: ["#22d3ee", "#67e8f9"] },
+  { level: 19, tricks: 10, time: 32, maxMoves: 4, title: "Legendary", bg: ["#fbbf24", "#fde68a"] },
+  { level: 20, tricks: 12, time: 34, maxMoves: 4, title: "Grand Champion", bg: ["#f97316", "#fbbf24"] },
 ];
 
 function getMove(id) { return MOVES.find(m => m.id === id); }
@@ -1029,6 +1029,7 @@ export default function TrampolineTricks() {
 
   useEffect(() => {
     if (screen !== "playing") return;
+    if (LEVELS[lvIdx].noTimer) return; // No timer on early levels
     const delay = tutorial >= 0 ? 2000 : 500;
     const did = setTimeout(() => {
       timerRef.current = setInterval(() => {
@@ -1041,7 +1042,7 @@ export default function TrampolineTricks() {
       }, 1000);
     }, delay);
     return () => { clearTimeout(did); clearInterval(timerRef.current); };
-  }, [screen, tutorial]);
+  }, [screen, tutorial, lvIdx]);
 
   const animateMove = useCallback((moveId, cb) => {
     setLocked(true);
@@ -1118,10 +1119,10 @@ export default function TrampolineTricks() {
 
   return (
     <div style={{
-      width: "100%", height: "100dvh", overflow: "hidden", position: "relative",
+      width: "100%", height: "100vh", overflow: "hidden", position: "relative",
       fontFamily: "'Lilita One', 'Baloo 2', cursive", userSelect: "none", WebkitUserSelect: "none",
       background: screen === "playing"
-        ? "#111"
+        ? `linear-gradient(180deg, ${bg[0]} 0%, ${bg[1]} 100%)`
         : screen === "customize"
         ? "linear-gradient(170deg, #0a0a1a 0%, #111827 50%, #1e3a2e 100%)"
         : "linear-gradient(170deg, #0a0a1a 0%, #111827 40%, #1e3a2e 100%)",
@@ -1429,108 +1430,140 @@ export default function TrampolineTricks() {
       {/* ═══ PLAYING ═══ */}
       {screen === "playing" && (
         <div style={{ flex: 1, display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
-          <ArenaBackground arena={arenaCfg} />
-          {/* HUD - zero fat */}
-          <div style={{ padding: "2px 10px 0", flexShrink: 0, position: "relative", zIndex: 2 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(10px, 2.5vw, 12px)", fontFamily: "'Baloo 2', cursive", fontWeight: 700 }}>Lv.{lv.level} {lv.title}</div>
-              <div style={{ color: "#fbbf24", fontSize: "clamp(13px, 3.2vw, 16px)", fontWeight: 800 }}>{score} pts</div>
+
+          {/* Top bar - minimal, just score + timer */}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 12px 0", position: "relative", zIndex: 3 }}>
+            <div style={{ color: "#fff", fontSize: "clamp(12px, 3.5vw, 16px)", fontWeight: 800, textShadow: "1px 1px 2px rgba(0,0,0,0.3)" }}>
+              🪙 {score}
             </div>
-            <div style={{ background: "rgba(0,0,0,0.3)", borderRadius: 8, height: 8, overflow: "hidden", position: "relative", marginTop: 1 }}>
+            {!lv.noTimer && (
               <div style={{
-                height: "100%", borderRadius: 8, width: `${tp}%`,
-                background: danger ? "linear-gradient(90deg, #ef4444, #f97316)" : "linear-gradient(90deg, #22c55e, #86efac)",
-                transition: "width 1s linear", animation: danger ? "pulse 0.5s infinite" : "none",
-              }} />
-              <div style={{ position: "absolute", right: 4, top: "50%", transform: "translateY(-50%)", color: "#fff", fontSize: 8, fontWeight: 800, fontFamily: "'Baloo 2', cursive", textShadow: "1px 1px 0 rgba(0,0,0,0.5)" }}>{timeLeft}s</div>
-            </div>
+                background: "rgba(0,0,0,0.25)", borderRadius: 20, padding: "3px 12px",
+                display: "flex", alignItems: "center", gap: 4,
+              }}>
+                <div style={{
+                  width: "clamp(60px, 18vw, 90px)", height: 8, borderRadius: 4,
+                  background: "rgba(0,0,0,0.2)", overflow: "hidden",
+                }}>
+                  <div style={{
+                    height: "100%", borderRadius: 4, width: `${tp}%`,
+                    background: danger ? "#ef4444" : "#fff",
+                    transition: "width 1s linear",
+                    animation: danger ? "pulse 0.5s infinite" : "none",
+                  }} />
+                </div>
+                <span style={{ color: "#fff", fontSize: 12, fontWeight: 800, textShadow: "1px 1px 0 rgba(0,0,0,0.3)" }}>{timeLeft}s</span>
+              </div>
+            )}
+            {lv.noTimer && (
+              <div style={{ color: "#fff", fontSize: 12, fontWeight: 700, background: "rgba(0,0,0,0.2)", borderRadius: 20, padding: "3px 10px" }}>
+                No rush! 🎉
+              </div>
+            )}
           </div>
 
-          {/* Trick name + sequence */}
+          {/* Trick name - big and clear as speech bubble */}
           {trick && (
-            <div style={{ padding: "2px 8px 0", textAlign: "center", flexShrink: 0, position: "relative", zIndex: 2 }}>
-              <div style={{ color: "#fbbf24", fontSize: "clamp(11px, 2.8vw, 13px)", fontFamily: "'Baloo 2', cursive", fontWeight: 700 }}>
-                Perform: <span style={{ color: "#fff", fontSize: "clamp(13px, 3.2vw, 15px)" }}>{trick.emoji} {trick.name}</span>
-              </div>
-              <div style={{ display: "flex", justifyContent: "center", gap: 3, alignItems: "center", marginTop: 1 }}>
-                {trick.moves.map((mid, i) => {
-                  const m = getMove(mid); const done = i < progress.length; const act = i === progress.length;
-                  return (
-                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 2 }}>
-                      <div style={{
-                        width: 28, height: 28, borderRadius: 8,
-                        display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                        background: done ? m.color : act ? `${m.color}30` : "rgba(255,255,255,0.05)",
-                        border: act ? `2px solid ${m.color}` : done ? `2px solid ${m.color}` : "2px solid rgba(255,255,255,0.1)",
-                        boxShadow: done ? `0 0 6px ${m.color}60` : "none", position: "relative",
-                        animation: act ? "seqP 1.2s ease-in-out infinite" : "none",
-                      }}>
-                        <span style={{ fontSize: 12 }}>{m.emoji}</span>
-                        <span style={{ fontSize: 6, color: "#fff", fontWeight: 700, fontFamily: "'Baloo 2', cursive" }}>{m.label}</span>
-                        {done && <div style={{ position: "absolute", top: -2, right: -2, width: 10, height: 10, borderRadius: "50%", background: "#22c55e", color: "#fff", fontSize: 6, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800 }}>✓</div>}
-                      </div>
-                      {i < trick.moves.length - 1 && <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 10, fontWeight: 800 }}>›</span>}
-                    </div>
-                  );
-                })}
+            <div style={{ textAlign: "center", padding: "4px 0", position: "relative", zIndex: 3 }}>
+              <div style={{
+                display: "inline-block", background: "rgba(255,255,255,0.95)", borderRadius: 16,
+                padding: "6px 20px", boxShadow: "0 3px 12px rgba(0,0,0,0.15)",
+                position: "relative",
+              }}>
+                <div style={{ color: "#333", fontSize: "clamp(14px, 4vw, 18px)", fontWeight: 800, fontFamily: "'Baloo 2', cursive" }}>
+                  {trick.emoji} {trick.name}
+                </div>
+                {trick.moves.length > 1 && (
+                  <div style={{ display: "flex", justifyContent: "center", gap: 4, marginTop: 3 }}>
+                    {trick.moves.map((mid, i) => {
+                      const m = getMove(mid); const done = i < progress.length; const act = i === progress.length;
+                      return (
+                        <div key={i} style={{ display: "flex", alignItems: "center", gap: 2 }}>
+                          <div style={{
+                            width: 24, height: 24, borderRadius: 6,
+                            background: done ? m.color : act ? `${m.color}40` : "#e5e7eb",
+                            display: "flex", alignItems: "center", justifyContent: "center",
+                            border: act ? `2px solid ${m.color}` : "2px solid transparent",
+                            animation: act ? "seqP 1s ease-in-out infinite" : "none",
+                          }}>
+                            <span style={{ fontSize: 11 }}>{m.emoji}</span>
+                          </div>
+                          {i < trick.moves.length - 1 && <span style={{ color: "#ccc", fontSize: 10 }}>›</span>}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+                {/* Speech bubble arrow */}
+                <div style={{
+                  position: "absolute", bottom: -8, left: "50%", transform: "translateX(-50%)",
+                  width: 0, height: 0, borderLeft: "8px solid transparent", borderRight: "8px solid transparent",
+                  borderTop: "8px solid rgba(255,255,255,0.95)",
+                }} />
               </div>
             </div>
           )}
 
-          {/* Character + trampoline + buttons - ALL in one centered group */}
+          {/* Character - BIG and centered */}
           <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", zIndex: 2, minHeight: 0 }}>
             {feedback && (
               <div style={{
-                position: "absolute", top: "3%", left: "50%", transform: "translateX(-50%)",
+                position: "absolute", top: 4, left: "50%", transform: "translateX(-50%)",
                 animation: "popIn 0.25s ease-out", zIndex: 15,
-                background: feedback.ok ? "linear-gradient(135deg, #22c55e, #16a34a)" : "linear-gradient(135deg, #ef4444, #b91c1c)",
-                borderRadius: 12, padding: "5px 16px", textAlign: "center", boxShadow: "0 4px 20px rgba(0,0,0,0.35)", whiteSpace: "nowrap",
+                background: feedback.ok ? "#22c55e" : "#ef4444",
+                borderRadius: 20, padding: "6px 20px", textAlign: "center",
+                boxShadow: "0 4px 16px rgba(0,0,0,0.25)",
               }}>
-                <div style={{ color: "#fff", fontSize: "clamp(14px, 4vw, 20px)", fontWeight: 800 }}>{feedback.text}</div>
-                <div style={{ color: "rgba(255,255,255,0.8)", fontSize: "clamp(10px, 2.5vw, 13px)", fontFamily: "'Baloo 2', cursive" }}>{feedback.sub}</div>
+                <div style={{ color: "#fff", fontSize: "clamp(16px, 5vw, 24px)", fontWeight: 800 }}>{feedback.text}</div>
+                <div style={{ color: "rgba(255,255,255,0.9)", fontSize: "clamp(11px, 3vw, 14px)", fontFamily: "'Baloo 2', cursive" }}>{feedback.sub}</div>
               </div>
             )}
 
             <div style={{ transform: `translateY(${charY}px)`, transition: "transform 0.2s ease-out" }}>
-              <ChildChar cfg={charCfg} pose={charPose} bounce={charPose === "idle" && !locked} scale={0.6} />
+              <ChildChar cfg={charCfg} pose={charPose} bounce={charPose === "idle" && !locked} scale={0.85} />
             </div>
-            <div>
-              <TrampolineDisplay type={arenaCfg.trampType} color={arenaCfg.trampColor} stretch={tramStretch} width={Math.min(window.innerWidth * 0.28, 120)} />
+            <div style={{ marginTop: -2 }}>
+              <TrampolineDisplay type={arenaCfg.trampType} color={arenaCfg.trampColor} stretch={tramStretch} width={140} />
             </div>
+          </div>
 
-            {/* Buttons directly below trampoline */}
-            <div style={{ marginTop: 6, display: "flex", justifyContent: "center", gap: 0, position: "relative" }}>
-              {tutorial === 0 && (
-                <div style={{
-                  position: "absolute", top: -18, left: "50%", transform: "translateX(-50%)",
-                  background: "rgba(0,0,0,0.8)", borderRadius: 6, padding: "2px 10px", color: "#fff",
-                  fontSize: 10, textAlign: "center", fontFamily: "'Baloo 2', cursive",
-                  fontWeight: 600, border: "1px solid rgba(251,191,36,0.3)", whiteSpace: "nowrap", zIndex: 20,
-                }}>👆 Tap <b style={{ color: "#fbbf24" }}>glowing button</b></div>
-              )}
+          {/* BUTTONS - always visible, big, friendly */}
+          <div style={{ flexShrink: 0, padding: "4px 4px 8px", position: "relative", zIndex: 3 }}>
+            {tutorial === 0 && (
+              <div style={{
+                textAlign: "center", marginBottom: 4, color: "#fff", fontSize: "clamp(12px, 3vw, 15px)",
+                fontFamily: "'Baloo 2', cursive", fontWeight: 700,
+                textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
+                animation: "pulse 1.5s ease-in-out infinite",
+              }}>👇 Tap the glowing button! 👇</div>
+            )}
+            <div style={{ display: "flex", justifyContent: "center", gap: 3 }}>
               {MOVES.map((move, mi) => {
                 const inT = trick && trick.moves.includes(move.id);
                 const isNext = trick && progress.length < trick.moves.length && trick.moves[progress.length] === move.id;
-                const isFirst = mi === 0;
-                const isLast = mi === MOVES.length - 1;
                 return (
                   <button key={move.id} onClick={() => inT && handleMove(move.id)} disabled={!inT || locked}
                     style={{
-                      width: "clamp(50px, 15vw, 66px)", height: "clamp(46px, 12vw, 58px)",
-                      borderRadius: isFirst ? "12px 3px 3px 12px" : isLast ? "3px 12px 12px 3px" : 3,
-                      background: `linear-gradient(160deg, ${move.color}${isNext ? "ee" : inT ? "cc" : "55"}, ${move.color}${isNext ? "bb" : inT ? "88" : "33"})`,
-                      border: isNext ? "3px solid #fff" : "none",
-                      borderRight: !isLast && !isNext ? "1px solid rgba(255,255,255,0.1)" : undefined,
+                      width: "clamp(50px, 15vw, 64px)", height: "clamp(50px, 13vw, 62px)",
+                      borderRadius: 14,
+                      background: isNext
+                        ? `linear-gradient(160deg, ${move.color}, ${move.color}cc)`
+                        : inT
+                        ? `linear-gradient(160deg, ${move.color}aa, ${move.color}77)`
+                        : `linear-gradient(160deg, ${move.color}44, ${move.color}22)`,
+                      border: isNext ? "3px solid #fff" : "2px solid rgba(255,255,255,0.2)",
                       color: "#fff", cursor: inT && !locked ? "pointer" : "default",
-                      display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 1,
-                      boxShadow: isNext ? `0 0 16px ${move.color}70` : "0 2px 6px rgba(0,0,0,0.2)",
+                      display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 2,
+                      boxShadow: isNext ? `0 0 20px ${move.color}88, 0 4px 12px rgba(0,0,0,0.2)` : "0 2px 8px rgba(0,0,0,0.15)",
                       opacity: 1,
-                      animation: isNext ? "btnG 0.8s ease-in-out infinite" : "none", transition: "background 0.15s, box-shadow 0.15s",
+                      animation: isNext ? "btnG 0.8s ease-in-out infinite" : "none",
+                      transition: "background 0.15s, box-shadow 0.15s, transform 0.15s",
+                      transform: isNext ? "scale(1.08)" : "scale(1)",
                       position: "relative", overflow: "hidden",
                     }}>
-                    {isNext && <div style={{ position: "absolute", top: 0, left: "-100%", width: "200%", height: "100%", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)", animation: "shine 1.5s ease-in-out infinite" }} />}
-                    <span style={{ fontSize: "clamp(18px, 4.5vw, 24px)", position: "relative" }}>{move.emoji}</span>
-                    <span style={{ fontSize: "clamp(9px, 2.2vw, 11px)", fontWeight: 800, fontFamily: "'Baloo 2', cursive", position: "relative", textShadow: "1px 1px 0 rgba(0,0,0,0.3)" }}>{move.label}</span>
+                    {isNext && <div style={{ position: "absolute", top: 0, left: "-100%", width: "200%", height: "100%", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)", animation: "shine 1.5s ease-in-out infinite" }} />}
+                    <span style={{ fontSize: "clamp(20px, 5vw, 28px)", position: "relative" }}>{move.emoji}</span>
+                    <span style={{ fontSize: "clamp(9px, 2.3vw, 12px)", fontWeight: 800, fontFamily: "'Baloo 2', cursive", position: "relative", textShadow: "1px 1px 0 rgba(0,0,0,0.2)" }}>{move.label}</span>
                   </button>
                 );
               })}
