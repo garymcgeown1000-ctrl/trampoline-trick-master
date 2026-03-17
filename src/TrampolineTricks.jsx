@@ -179,7 +179,7 @@ export default function Game(){
   const F="'Lilita One','Baloo 2',cursive";const F2="'Baloo 2',cursive";
 
   return(
-    <div style={{position:"fixed",top:0,left:0,right:0,bottom:0,overflow:"hidden",fontFamily:F,userSelect:"none",WebkitUserSelect:"none",touchAction:"manipulation",background:screen==="play"?`linear-gradient(180deg,${bg[0]},${bg[1]})`:"linear-gradient(170deg,#0a0a1a 0%,#111827 40%,#1e3a2e 100%)",display:"flex",flexDirection:"column"}}>
+    <div style={{width:"100%",height:"100%",overflow:"hidden",fontFamily:F,userSelect:"none",WebkitUserSelect:"none",touchAction:"manipulation",background:screen==="play"?`linear-gradient(180deg,${bg[0]},${bg[1]})`:"linear-gradient(170deg,#0a0a1a 0%,#111827 40%,#1e3a2e 100%)",display:"flex",flexDirection:"column"}}>
       <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 
       {/* ═══ MENU ═══ */}
@@ -293,7 +293,7 @@ export default function Game(){
           </div>
 
           {/* ROW 4: BUTTONS — always visible, grid auto row */}
-          <div style={{padding:"4px 4px 40px",zIndex:2}} className="btn-row">
+          <div style={{padding:"4px 4px 40px",zIndex:2}}>
             <div style={{display:"flex",justifyContent:"center",gap:3}}>
               {MV.map((mv)=>{
                 const inT=trick&&trick.m.includes(mv.id);
@@ -340,7 +340,6 @@ export default function Game(){
       )}
 
       <style>{`
-        .btn-row{padding-bottom:max(40px,env(safe-area-inset-bottom,40px)) !important}
         @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
         @keyframes popIn{0%{transform:translateX(-50%) scale(0.7);opacity:0}100%{transform:translateX(-50%) scale(1);opacity:1}}
         @keyframes btnG{0%,100%{box-shadow:0 0 8px rgba(255,255,255,0.3)}50%{box-shadow:0 0 20px rgba(255,255,255,0.6)}}
